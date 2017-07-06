@@ -12,7 +12,8 @@ module CipherMachine
         '6', '-....', '7', '--...', '8', '---..', '9', '----.', '.', '.-.-.-', ',', '--..--',
       ]
 
-      def encrypt(input)
+      def convert(input)
+        raise(ArgumentError, 'Input has to be a string') unless input.is_a?(String)
         invalid_letter = /[^A-Za-z0-9., ]/.match(input)
         raise(InvalidLetter, "Invalid Letter: '#{invalid_letter}'") if invalid_letter
 
@@ -20,14 +21,15 @@ module CipherMachine
 
         words.map do |word|
           word.chars.map do |c|
-            encrypt_letter(c)
+            convert_letter(c)
           end.join('|')
         end.join('/')
       end
 
+      private_constant :MORSE_CODE
       private
 
-      def encrypt_letter(char)
+      def convert_letter(char)
         MORSE_CODE[char.upcase]
       end
     end

@@ -2,8 +2,16 @@
 require 'spec_helper'
 
 RSpec.describe CipherMachine::Encryptor::PlainTextToMorseCode do
-  describe '#encrypt' do
-    subject { described_class.new.encrypt(input) }
+  describe '#convert' do
+    subject { described_class.new.convert(input) }
+
+    context 'when input is not a string' do
+      let(:input) { 1 }
+
+      it 'raises an Argument error' do
+        expect { subject }.to raise_error(ArgumentError, 'Input has to be a string')
+      end
+    end
 
     context 'when input is an empty string' do
       let(:input) { '' }
@@ -18,7 +26,7 @@ RSpec.describe CipherMachine::Encryptor::PlainTextToMorseCode do
       let(:input) { ' ' }
       let(:expected_result) { '' }
 
-      it 'an empty string' do
+      it 'returns an empty string' do
         expect(subject).to eq(expected_result)
       end
     end
@@ -39,7 +47,6 @@ RSpec.describe CipherMachine::Encryptor::PlainTextToMorseCode do
         expect(subject).to eq(expected_result)
       end
     end
-
 
     context 'when input is a sentence' do
       let(:input) { 'I AM IN TROUBLE' }
