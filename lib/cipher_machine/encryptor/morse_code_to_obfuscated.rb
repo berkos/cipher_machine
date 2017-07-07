@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CipherMachine
   module Encryptor
     class MorseCodeToObfuscated
@@ -6,7 +7,7 @@ module CipherMachine
       LETTERS = ('A'..'E').to_a
       MAPPING = Hash[
         '.', ->(number) { number },
-        '-', ->(number) { LETTERS[number-1] }
+        '-', ->(number) { LETTERS[number - 1] }
         ]
 
       def convert(input)

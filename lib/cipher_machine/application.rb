@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module CipherMachine
   class Application
-
     def initialize(input:, output:)
       raise(ArgumentError, 'Input should be IO') unless input.is_a?(IO)
       raise(ArgumentError, 'Output should be IO') unless output.is_a?(IO)
@@ -12,7 +13,7 @@ module CipherMachine
     end
 
     def encrypt
-      while (sentence = input.gets&.chomp) do
+      while (sentence = input.gets&.chomp)
         output.puts(encrypt_sentence(sentence))
       end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When(/^I run \.\/bin\/cipher_machine \-I "([^"]*)"$/) do |arg1|
   @output = IO.popen("./bin/cipher_machine -I #{arg1}")
   @output = @output.readlines

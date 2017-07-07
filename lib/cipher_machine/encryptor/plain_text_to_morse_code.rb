@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CipherMachine
   module Encryptor
     class PlainTextToMorseCode
@@ -27,6 +28,7 @@ module CipherMachine
       end
 
       private_constant :MORSE_CODE
+
       private
 
       def convert_letter(char)

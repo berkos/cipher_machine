@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe CipherMachine::Application do
@@ -67,7 +68,7 @@ RSpec.describe CipherMachine::Application do
     end
 
     context 'when input is multi lines' do
-      let(:inputs) { ["HELLO", "I AM IN TROUBLE\n", nil] }
+      let(:inputs) { ['HELLO', "I AM IN TROUBLE\n", nil] }
       let(:expected_output) { ['4|1|1A2|1A2|C', '2/1A|B/2|A1/A|1A1|C|2A|A3|1A2|1'] }
 
       it 'outputs the expected result' do
@@ -79,7 +80,7 @@ RSpec.describe CipherMachine::Application do
     end
 
     context 'when one of the inputs contains a character that is not supported' do
-      let(:inputs) { ["HELLO", "I AM IN &&&\n", nil] }
+      let(:inputs) { ['HELLO', "I AM IN &&&\n", nil] }
       let(:expected_output) { ['4|1|1A2|1A2|C', "Invalid Letter: '&'"] }
 
       it 'outputs the error' do
