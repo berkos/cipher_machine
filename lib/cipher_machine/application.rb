@@ -15,6 +15,8 @@ module CipherMachine
       while (sentence = input.gets&.chomp) do
         output.puts(encrypt_sentence(sentence))
       end
+
+      close_io
     end
 
     private
@@ -25,6 +27,11 @@ module CipherMachine
       morse_code_to_obfuscated.convert(plain_text_to_morse_code.convert(input))
     rescue Encryptor::PlainTextToMorseCode::InvalidLetter => error
       error.message
+    end
+
+    def close_io
+      input.close
+      output.close
     end
   end
 end

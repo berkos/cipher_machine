@@ -41,6 +41,8 @@ RSpec.describe CipherMachine::Application do
     before do
       allow(input_source).to receive(:gets).and_return(*inputs)
       allow(output_source).to receive(:puts)
+      allow(input_source).to receive(:close)
+      allow(output_source).to receive(:close)
     end
 
     context 'when input is an empty line' do

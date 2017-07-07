@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require_relative '../lib/cipher_machine'
+
+arguments = {}
+ARGV.each_slice(2).to_a.each { |key, value| arguments[key.delete('-')] = value }
+
+puts('Please enter as manny sentences you want. you may terminate the input and proceed to the encryption by Ctrl + D') unless arguments.key?('I')
+
+input = arguments.key?('I') ? File.open(arguments['I'], 'r') : STDIN
+output = arguments.key?('O') ? File.open(arguments['O'], 'w') : STDOUT
+CipherMachine::Application.new(input: input, output: output).encrypt
