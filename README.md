@@ -1,10 +1,10 @@
 ## Objective
 
-###Premise
+### Premise
 
 You're competing in a battle on a far away planet and you're in some trouble. You need to send a distress call to your home base for reinforcements, however, enemy agents are listening. Luckily your team have a secret encoding for messages. It's Morse code with further obfuscation.
 
-###Challenge
+### Challenge
 
 Write a program that will accept text either from stdin, or as a file path and will translate the alphanumeric sentence to Morse code. Then for bonus points, obfuscate the Morse code. Below is a list of international Morse code and the algorithm for obfuscation. Separate letters with pipe (|), and separate words with forward slash (/).
 
